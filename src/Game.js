@@ -183,7 +183,7 @@ function Game() {
     answers &&
     answers.map((answer, i) => (
       <li
-        className={answer === questionData.correctAnswer ? "green" : ""}
+        className={answer === questionData.correctAnswer ? "correct" : ""}
         key={i}
         onClick={() => handleClick(answer)}
       >
@@ -192,7 +192,7 @@ function Game() {
     ));
 
   return (
-    <>
+    <div className="game-wrapper">
       {!isLoading ? (
         <>
           <div className="turns-wrapper">{turnElements}</div>
@@ -203,9 +203,11 @@ function Game() {
           />
         </>
       ) : (
-        <img src="assets/loading.gif" />
+        <div className="loading-img-wrapper">
+          <img src="assets/loading.gif" />
+        </div>
       )}
-    </>
+    </div>
   );
 }
 
